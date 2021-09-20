@@ -8,6 +8,7 @@ namespace Tysseek
     {
         [SerializeField] int _hp;
 
+        
 
         public bool isProtected { get; set; } = false;
 
@@ -28,8 +29,10 @@ namespace Tysseek
         }
         public void Kill()
         {
-            gameObject.SetActive(false);
             GameManager.PlayerDied();
+            gameObject.SetActive(false);
+
+
         }
     }
 }

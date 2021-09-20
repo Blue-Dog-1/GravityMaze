@@ -18,10 +18,12 @@ namespace Tysseek {
         static public bool sound { get; private set; } = true;
 
         [SerializeField] GameSettings _settings;
+        [SerializeField] InputHub _input;
         [SerializeField] Transform Player;
+
         [SerializeField] UnityEvent _playerWon;
         [SerializeField] UnityEvent _playerDied;
-        Transform camera;
+        Transform _camera;
         UIManager _UIManager;
 
         private void Awake()
@@ -31,22 +33,24 @@ namespace Tysseek {
         }
         void Start()
         {
-            camera = Camera.main.transform;
+            _camera = Camera.main.transform;
             pause = false;
-        }
+            Time.timeScale = 1;
+            Physics.gravity = Vector3.down * 9.81f;
 
-        void FixedUpdate()
+            _input.left += RotateL;
+            _input.right += RotateR;
+        }
+        
+        void RotateL()
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                camera.RotateAround(Player.transform.position, Vector3.back, 5f);
-                Physics2D.gravity = -camera.transform.up * GRAVITY;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                camera.RotateAround(Player.transform.position, Vector3.forward, 5f);
-                Physics2D.gravity = -camera.transform.up * GRAVITY;
-            }
+            _camera.RotateAround(Player.transform.position, Vector3.back, 5f);
+            Physics2D.gravity = -_camera.transform.up * GRAVITY;
+        }
+        void RotateR()
+        {
+            _camera.RotateAround(Player.transform.position, Vector3.forward, 5f);
+            Physics2D.gravity = -_camera.transform.up * GRAVITY;
         }
         public static void MakePause()
         {
@@ -67,6 +71,8 @@ namespace Tysseek {
         public static void OnHitting(Player player)
         {
             main._playerWon?.Invoke();
+            MakePause();
+            main._UIManager.HideHUD(false);
         }
         public static void OnHitting(Enemy enemy)
         {
@@ -75,12 +81,11 @@ namespace Tysseek {
         public static void PlayerDied()
         {
             main._playerDied?.Invoke();
-            Debug.Log("Player Died!!!");
             MakePause();
+            main._UIManager.HideHUD(false);
         }
         public static void EnemyDied()
         {
-            Debug.Log("Enemy Died!!!");
         }
 
         static public void Restart()
@@ -94,7 +99,7 @@ namespace Tysseek {
 
         private void OnApplicationQuit()
         {
-            Physics.gravity = Vector3.down * 9.81f;
+            
         }
     }
 }

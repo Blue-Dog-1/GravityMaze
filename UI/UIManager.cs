@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 namespace Tysseek
@@ -11,7 +12,11 @@ namespace Tysseek
     {
         [SerializeField] RectTransform _controlPanel;
         [Header("Windows")]
-        [SerializeField] RectTransform _endGameWindow;
+        [Header("End Session Window")]
+        [SerializeField] RectTransform _WonWindow;
+        [SerializeField] RectTransform _LostWindow;
+
+        [Header("Pause Window")]
         [SerializeField] RectTransform _pauseWindow;
         [SerializeField] RectTransform _settingsWindow;
 
@@ -27,7 +32,6 @@ namespace Tysseek
         [SerializeField] Sprite _musicOn;
         [SerializeField] Sprite _musicOff;
 
-
         void Start()
         {
 
@@ -39,7 +43,7 @@ namespace Tysseek
         }
         public void EndSession()
         {
-            _endGameWindow.gameObject.SetActive(true);
+            _WonWindow.gameObject.SetActive(true);
         }
         public void Pouse()
         {
@@ -54,7 +58,11 @@ namespace Tysseek
                 _buttonPause.sprite = _spritePause;
 
         }
-
+        public void HideHUD(bool show)
+        {
+            _controlPanel.gameObject.SetActive(show);
+            _HUDElements.gameObject.SetActive(show);
+        }
         public void ExitToMainMenu()
         {
             Physics.gravity = Vector3.down * 9.81f;
@@ -71,12 +79,14 @@ namespace Tysseek
         }
         public void PlayerWon()
         {
-            
+            _WonWindow.gameObject.SetActive(true);
+            _LostWindow.gameObject.SetActive(false);
 
         }
         public void PlayerLost()
         {
-
+            _WonWindow.gameObject.SetActive(false);
+            _LostWindow.gameObject.SetActive(true);
         }
         public void QuitGame()
         {

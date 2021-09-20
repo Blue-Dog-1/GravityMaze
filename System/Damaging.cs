@@ -14,15 +14,24 @@ namespace Tysseek
 
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision) =>
+            ToDamage(collision.gameObject.GetComponent<IAnnihilated>());
+
+        private void OnCollisionEnter2D(Collision2D collision) =>
+            ToDamage(collision.gameObject.GetComponent<IAnnihilated>());
+
+        void ToDamage(IAnnihilated annihilated)
         {
-            var annihilated = collision.gameObject.GetComponent<IAnnihilated>();
             if (annihilated == null) return;
 
             if (annihilated is Player player)
-            {
-                if (player.isProtected) return;
-            }
+                if (player.isProtected)
+                {
+                    player.isProtected = false;
+                    var _rotected = player.transform.GetChild(0);
+                    if(_rotected) Destroy(_rotected.gameObject);
+                    return;
+                }
 
             if (!_isAbsolute)
                 annihilated.ToDamage(_amountOfDamage);
