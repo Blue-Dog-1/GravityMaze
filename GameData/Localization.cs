@@ -23,46 +23,6 @@ public class Localization : MonoBehaviour
     public static Dictionary<string, string> text;
     void Awake()
     {   
-        language = EN;
-        if (levelData.isFirstStart)
-        switch (Application.systemLanguage)
-        {
-            case SystemLanguage.English:
-                language = EN;
-                break;
-            case SystemLanguage.Russian:
-                levelData.language = SystemLanguage.Russian;
-                language = RU;
-                break;
-            case SystemLanguage.Ukrainian: 
-                levelData.language = SystemLanguage.Russian;
-                language = RU;
-                break;
-            case SystemLanguage.Belarusian: 
-                levelData.language = SystemLanguage.Russian;
-                language = RU;
-                break;
-            case SystemLanguage.Estonian: 
-                levelData.language = SystemLanguage.Estonian;
-                language = ES;
-                break;
-        }
-        else if (!levelData.isFirstStart)
-        switch (levelData.language)
-        {
-            case SystemLanguage.English:
-                levelData.language = SystemLanguage.English;
-                language = EN;
-                break;
-            case SystemLanguage.Russian:
-                levelData.language = SystemLanguage.Russian;
-                language = RU;
-                break;
-        }
-        getLang();
-        
-
-        levelData.isFirstStart = false;
     }
     void Start()
     {
@@ -70,22 +30,7 @@ public class Localization : MonoBehaviour
     }
     public void SetLanguage()
     {
-        switch(dropdown.value)
-        {
-            case 0:
-                levelData.language = SystemLanguage.English;
-                language = EN;
-                break;
-            case 1:
-                levelData.language = SystemLanguage.Russian;
-                language = RU;
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-        getLang();
+        
     }
 
     void getLang()

@@ -7,6 +7,7 @@ namespace Tysseek
     [CreateAssetMenu(fileName = "Settings", menuName = "Project")]
     public class GameSettings : ScriptableObject
     {
+        [SerializeField] bool _music;
         [SerializeField] bool _sound;
 
     }

@@ -46,16 +46,10 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < panCaunt; i++)
         {
             intPans[i] = Instantiate(panPrefab, transform, false);
-            intPans[i].GetComponent<Image>().sprite = LevelData.image[i];
-            intPans[i].transform.GetChild(0).gameObject.SetActive(!LevelData.isUnlocked[i]);
-            intPans[i].transform.GetChild(1).gameObject.SetActive(LevelData.isUnlocked[i]);
-            if (LevelData.scoring[i] > 0)
-            intPans[i].transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = LevelData.scoring[i].ToString();
             if (i == 0) continue;
             intPans[i].transform.localPosition = new Vector2(intPans[i-1].transform.localPosition.x + panPrefab.GetComponent<RectTransform>().sizeDelta.x + panOffset, 
                 intPans[i].transform.localPosition.y);
             pansPos[i] = -intPans[i].transform.localPosition; 
-            
         }
      
     }
@@ -82,11 +76,6 @@ public class MainMenu : MonoBehaviour
         if (scrollVelocity < 400 && !isScrolling) scrollRect.inertia = false;
 
         if (isScrolling || scrollVelocity > 400) return;
-        contentVector.x = Mathf.SmoothStep(contentRect.anchoredPosition.x, pansPos[selelctPanID].x, snapSpeed * Time.fixedDeltaTime);
-        contentRect.anchoredPosition = contentVector;
-
-        if(LevelData.isUnlocked[selelctPanID] && Application.CanStreamedLevelBeLoaded("level" + (selelctPanID)))
-        buttonPlay.interactable = true;
         else buttonPlay.interactable = false;
         
     }
@@ -98,28 +87,9 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayLayer()
     {   
-        try{
         
-        if (LevelData.isUnlocked[selelctPanID])
-            //SceneManager.LoadScene(LevelData.nameLavel[selelctPanID], LoadSceneMode.Single);
-            StartCoroutine(AsyncLoad());
-        }
-        catch{
-            Debug.Log("error");
-        }
     }
-    IEnumerator AsyncLoad()
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(LevelData.nameLavel[selelctPanID]);
-        loadingImg.gameObject.transform.parent.gameObject.SetActive(true);
-        while (!operation.isDone)
-        {
-            float progress = operation.progress;// / 0.9f;
-            loadingImg.value = progress;
-            Debug.Log(progress);
-            yield return null;
-        }
-    }
+    
     public void StartAnimation()
     {
         ParentR.GetComponent<Animation>().Play();

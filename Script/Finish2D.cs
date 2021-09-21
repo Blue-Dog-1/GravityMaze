@@ -34,7 +34,6 @@ namespace Tysseek
             //pauseMenu = FindObjectsOfType<PauseMenu>()[0];
             Pause.interactable = true;
             Quantity = GameObject.FindGameObjectsWithTag("Ename").Length;
-            MinPrizePlace = Objective();
             //anim = OutScoringRealTime.GetComponent<Animation>();
             if (!_switch && !InternetCheck.CheckConectInternet())
             {
@@ -102,16 +101,6 @@ namespace Tysseek
         void Savelevel()
         {
             var namberLeve = GetNamberScene();
-            if (scoring != 0 || levelData.scoring[namberLeve] > scoring)
-                levelData.scoring[namberLeve] = scoring + 1;
-            levelData.isUnlocked[namberLeve] = true;
-
-            if (scoring <= MinPrizePlace && levelData.nameLavel.Length >= namberLeve + 1)
-            {
-                levelData.isUnlocked[namberLeve + 1] = true;
-                //pauseMenu.NexLevelButton.interactable = true;
-                //pauseMenu.NexLevelPauseMenu.interactable = true;
-            }
         }
 
 
@@ -148,22 +137,6 @@ namespace Tysseek
             }
         }
 
-
-        int Objective()
-        {
-            var textObjective = levelData.objective[Finish2D.GetNamberScene()];
-            int namber;
-            if (textObjective.Contains("|n_"))
-            {
-                namber = textObjective.LastIndexOf("|n_") + 3;
-                var r = textObjective;
-                namber = Int32.Parse(textObjective.Substring(namber));
-                objective.text = r.Substring(0, textObjective.LastIndexOf("|n_")) + namber;
-                return namber;
-            }
-            else return 0;
-
-        }
 
 
     }

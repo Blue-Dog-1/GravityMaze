@@ -25,11 +25,19 @@ namespace Tysseek
 
         public void SwitchMusic(bool value)
         {
-            _ambient.enabled = value;
+            _ambient.volume = (value) ? 1 : 0;
+        }
+        public void SwitchSound(bool turnOn)
+        {
+            if (_audioUI)
+
+                _audioUI.volume = (turnOn)? 1 : 0;
+
+            if (_audioGameplay)
+                _audioGameplay.volume = (turnOn) ? 1 : 0;
         }
         public void PlayClic()
         {
-            if (!GameManager.sound) return;
             _audioUI.clip = _clic;
             _audioUI.Play();
         }

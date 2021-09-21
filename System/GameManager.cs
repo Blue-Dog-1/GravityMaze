@@ -12,10 +12,12 @@ namespace Tysseek {
         const float GRAVITY = 9.81f;
         public const string PLAYER = "Player";
         public const string ENEMY = "Enemy";
+        public const string STATE_MUSIC = "state_music";
+        public const string STATE_SOUND = "state_Sound";
 
         static GameManager main;
         static public bool pause { get; private set; } = false;
-        static public bool sound { get; private set; } = true;
+        static public bool sound { get; set; } = true;
 
         [SerializeField] GameSettings _settings;
         [SerializeField] InputHub _input;
