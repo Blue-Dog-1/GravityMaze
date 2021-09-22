@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00dba71515ee58342be7eb3969f91f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelData: {fileID: 0}
   _settings: {fileID: 0}
   _input: {fileID: 1092210792945243086}
   Player: {fileID: 0}
@@ -68,12 +69,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8414169598016533646}
+        m_TargetAssemblyTypeName: Tysseek.AudioHub, Assembly-CSharp
+        m_MethodName: OnHitting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _playerDied:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 950294544731311420}
         m_TargetAssemblyTypeName: Tysseek.UIManager, Assembly-CSharp
         m_MethodName: PlayerLost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8414169598016533646}
+        m_TargetAssemblyTypeName: Tysseek.AudioHub, Assembly-CSharp
+        m_MethodName: OnPlayerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -27,9 +27,7 @@ namespace Tysseek
             if (annihilated is Player player)
                 if (player.isProtected)
                 {
-                    player.isProtected = false;
-                    var _rotected = player.transform.GetChild(0);
-                    if(_rotected) Destroy(_rotected.gameObject);
+                    StartCoroutine(player.protectiveField.Disactiv(player));
                     return;
                 }
 

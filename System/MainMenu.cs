@@ -1,29 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tysseek
 {
     [AddComponentMenu("Project/MainMenu")]
     public class MainMenu : MonoBehaviour
     {
+        public static MainMenu main
+        {
+            get; private set;
+        }
         [SerializeField] SaveLoadSystem _SLSystem;
         [SerializeField] GameObject[] _toggleMusic;
         [SerializeField] GameObject[] _toggleSound;
         [SerializeField] GameObject _Ads;
         [SerializeField] AudioHub _audioHub;
+        [SerializeField] Transform _area;
+        [SerializeField] List<LevelPoint> _levelPoints;
 
         [SerializeField] float _velocityMoveCam = 1f;
 
         PlayerData _playerData;
 
-        float diraction;
-        Transform _camera;
-
+        public void Awake()
+        {
+            main = this;
+        }
         void Start()
         {
             Input.simulateMouseWithTouches = true;
-            _camera = Camera.main.transform;
             _playerData = _SLSystem.Load();
             _toggleMusic[0].SetActive(_playerData.toggleMusic);
             _toggleMusic[1].SetActive(!_playerData.toggleMusic);
@@ -34,16 +41,32 @@ namespace Tysseek
             _audioHub.SwitchSound(_playerData.toggleSund);
             GameManager.sound = _playerData.toggleSund;
 
+            var point = _levelPoints[_playerData.lastlevel];
+            point.level.isUnlocked = true;
+            point.Instate();
+            _area.position = point.transform.position;
         }
-        Vector2 pressPosition;
-        public void FixedUpdate()
+
+        public void Play()
         {
-            if (Input.touchCount > 1)
-            {
-                diraction = Input.GetTouch(0).deltaPosition.y;
-                _camera.position += (Vector3.forward * diraction * _velocityMoveCam);
-            }
+            DontDestroyOnLoad(gameObject);
+            StartCoroutine(LoadScene());
         }
+
+        IEnumerator LoadScene()
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+
+            while (!asyncLoad.isDone)
+            {
+                yield return new WaitForSecondsRealtime(1);
+            }
+
+            var gamemanager = GameObject.FindObjectOfType<GameManager>();
+            var point = _levelPoints[_playerData.lastlevel];
+            gamemanager.SubStart(point.level);
+        }
+
 
         public void SwitchMusic(bool turnOn)
         {

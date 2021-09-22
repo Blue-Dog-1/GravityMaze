@@ -7,11 +7,16 @@ namespace Tysseek
     public class Player : MonoBehaviour, IAnnihilated
     {
         [SerializeField] int _hp;
-
         
-
         public bool isProtected { get; set; } = false;
+        public ProtectiveField protectiveField;
 
+
+        private void LateUpdate()
+        {
+            if(protectiveField)
+            protectiveField.transform.position = transform.position;
+        }
         public void OnHitting()
         {
             gameObject.SetActive(false);

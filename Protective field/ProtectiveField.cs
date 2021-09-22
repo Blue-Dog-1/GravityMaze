@@ -15,13 +15,19 @@ namespace Tysseek
                 var player = collision.gameObject.GetComponent<Player>();
                 if (player?.isProtected ?? true) return;
                 player.isProtected = true;
-                transform.parent = player.transform;
-                transform.localPosition = Vector3.zero;
+                player.protectiveField = this;
                 transform.localScale *= _fullSize;
-
 
                 GetComponent<Collider2D>().enabled = false;
             }
+        }
+
+        public IEnumerator Disactiv(Player player)
+        {
+            yield return new WaitForSeconds(1);
+            player.isProtected = false;
+            gameObject.SetActive(false);
+
         }
     }
 }

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Localization : MonoBehaviour
 {
     private Language language;
-    [Header("LevelData")]
-    public LevelData levelData;
     [Header("Dropdown")]
     public GameObject LanguageSelection;
     private TMPro.TMP_Dropdown dropdown;

@@ -18,7 +18,7 @@ namespace Tysseek {
         static GameManager main;
         static public bool pause { get; private set; } = false;
         static public bool sound { get; set; } = true;
-
+        [SerializeField] LevelData _levelData;
         [SerializeField] GameSettings _settings;
         [SerializeField] InputHub _input;
         [SerializeField] Transform Player;
@@ -33,8 +33,15 @@ namespace Tysseek {
             main = FindObjectOfType<GameManager>();
             _UIManager = FindObjectOfType<UIManager>();
         }
-        void Start()
+        public void SubStart(LevelData levelData)
         {
+            if (levelData) _levelData = levelData;
+
+            if (_levelData)
+                StartCoroutine(Unpack());
+            else
+                Debug.LogWarning("not have LevelData");
+
             _camera = Camera.main.transform;
             pause = false;
             Time.timeScale = 1;
@@ -42,8 +49,16 @@ namespace Tysseek {
 
             _input.left += RotateL;
             _input.right += RotateR;
+
         }
-        
+
+        IEnumerator Unpack()
+        {
+            _levelData.Unpack();
+            yield return new WaitForEndOfFrame();
+        }
+
+
         void RotateL()
         {
             _camera.RotateAround(Player.transform.position, Vector3.back, 5f);
@@ -92,6 +107,7 @@ namespace Tysseek {
 
         static public void Restart()
         {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
         public void OnDestroy()

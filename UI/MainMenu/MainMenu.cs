@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public LevelData LevelData;
     [Range(1, 50)]
     [Header("Controlles")]
     [SerializeField]
