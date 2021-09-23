@@ -23,7 +23,7 @@ namespace Tysseek
             {
                 Undo.RecordObject(data, "Add asset");
                 if (Selection.gameObjects.Length == 0) return;
-                var objects = Selection.gameObjects;
+                var objects = GameObject.FindGameObjectsWithTag(GameManager.BLOCK);
                 Asset[] assets = new Asset[objects.Length];
 
                 for (int i = 0; i < objects.Length; i++)
@@ -63,13 +63,49 @@ namespace Tysseek
                 data.SetData(assets);
                 EditorUtility.SetDirty(data);
             }
+            GUILayout.Space(10);
 
+            if(GUILayout.Button("Set Enemy"))
+            {
+                Undo.RecordObject(data, "Add asset");
+                if (Selection.gameObjects.Length == 0) return;
+                var objects = Resources.FindObjectsOfTypeAll<Enemy>();
+                Asset[] assets = new Asset[objects.Length];
+
+                for (int i = 0; i < objects.Length; i++)
+                {
+                    if (objects[i].transform == null) continue;
+
+                    assets[i].name = "Enemy";
+
+                    assets[i].coordinates.Convert(objects[i].transform);
+                }
+
+                data.SetDataEnemy(assets);
+                EditorUtility.SetDirty(data);
+            }
 
             if (GUILayout.Button("Unpack"))
             {
                 Undo.RegisterSceneUndo("Unpuc");
                 data.Unpack();
                 EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            }
+
+            GUILayout.Space(10);
+            if (GUILayout.Button("Set Player Position")) 
+            {
+
+                var player =GameObject.FindObjectOfType<Player>();
+                if(player)
+                {
+                    Undo.RecordObject(data, "Add position player");
+                    data.playerPos = player.transform.position;
+                    EditorUtility.SetDirty(data);
+                    return;
+                }
+                Debug.LogWarning("there is no object with a 'player' component on the scene");
+
             }
 
         }

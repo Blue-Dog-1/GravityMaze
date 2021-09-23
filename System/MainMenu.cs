@@ -12,6 +12,7 @@ namespace Tysseek
         {
             get; private set;
         }
+        [SerializeField] GameManager _gameManager;
         [SerializeField] SaveLoadSystem _SLSystem;
         [SerializeField] GameObject[] _toggleMusic;
         [SerializeField] GameObject[] _toggleSound;
@@ -49,23 +50,10 @@ namespace Tysseek
 
         public void Play()
         {
-            DontDestroyOnLoad(gameObject);
-            StartCoroutine(LoadScene());
+            _gameManager.levelData = _levelPoints[_playerData.lastlevel].level;
         }
 
-        IEnumerator LoadScene()
-        {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
-
-            while (!asyncLoad.isDone)
-            {
-                yield return new WaitForSecondsRealtime(1);
-            }
-
-            var gamemanager = GameObject.FindObjectOfType<GameManager>();
-            var point = _levelPoints[_playerData.lastlevel];
-            gamemanager.SubStart(point.level);
-        }
+        
 
 
         public void SwitchMusic(bool turnOn)

@@ -6,22 +6,20 @@ namespace Tysseek
 {
     public class CameraTracking : MonoBehaviour
     {
-        [SerializeField] Transform Player;
+        [SerializeField] Transform _player;
         private Vector3 deltaPosition;
-
         void Start()
         {
-            deltaPosition = Player.position;
+            deltaPosition = _player.position;
             deltaPosition.z = transform.position.z;
-            Physics2D.gravity = Vector3.down * 9.81f;
         }
 
         void FixedUpdate()
         {
-            deltaPosition.x = Player.position.x;
-            deltaPosition.y = Player.position.y;
+            deltaPosition.x = _player.position.x;
+            deltaPosition.y = _player.position.y;
 
-            Camera.main.transform.position = Vector3.Lerp(transform.position, deltaPosition, 0.3f);
+            transform.position = Vector3.Lerp(transform.position, deltaPosition, 0.3f);
         }
     }
 }

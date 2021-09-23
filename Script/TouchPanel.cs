@@ -18,8 +18,15 @@ namespace Tysseek
 
         void FixedUpdate()
         {
-            _camera.transform.position += (Vector3.forward * diraction * _velocityMoveCam);
-            diraction = 0;
+            try
+            {
+                _camera.transform.position += (Vector3.forward * diraction * _velocityMoveCam);
+                diraction = 0;
+            }
+            catch
+            {
+                gameObject.SetActive(false);
+            }
         }
         public void OnDrag(PointerEventData eventData)
         {

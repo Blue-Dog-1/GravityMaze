@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.Events;
 
 namespace Tysseek
 {
@@ -31,16 +31,14 @@ namespace Tysseek
         [SerializeField] Image _buttonSound;
         [SerializeField] Sprite _musicOn;
         [SerializeField] Sprite _musicOff;
+        [SerializeField] UnityEvent _startGame;
 
-        void Start()
+        public void SubStart()
         {
-
+            _startGame?.Invoke();
+            HideHUD(true);
         }
-
-        void Update()
-        {
-
-        }
+        
         public void EndSession()
         {
             _WonWindow.gameObject.SetActive(true);
@@ -65,6 +63,7 @@ namespace Tysseek
         }
         public void ExitToMainMenu()
         {
+            HideHUD(false);
             Physics.gravity = Vector3.down * 9.81f;
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }

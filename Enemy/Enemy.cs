@@ -6,12 +6,35 @@ namespace Tysseek
 {
     public class Enemy : MonoBehaviour, IAnnihilated
     {
+        public static List<Enemy> enemies = new List<Enemy>();
         [SerializeField] int _hp;
+        [SerializeField] TrailRenderer _trail;
 
+        Rigidbody2D _rb;
+        public void Start()
+        {
+            enemies.Add(this);
+            _rb = GetComponent<Rigidbody2D>();
+        }
+        private void OnEnable()
+        {
+            if (_rb == null)
+                _rb = GetComponent<Rigidbody2D>();
+            _trail.gameObject.SetActive(true);
+        }
+        void OnDisable()
+        {
+            _trail.gameObject.SetActive(false);
+            ResetPhysics();
+        }
+        public void ResetPhysics()
+        {
+            _rb.velocity = Vector2.zero;
+            _rb.angularVelocity = 0;
+        }
         public void OnHitting()
         {
             gameObject.SetActive(false);
-            Debug.LogFormat("The enemy '{0}' came out", gameObject.name);
             GameManager.OnHitting(this);
         }
         public void ToDamage(int amountOfDamage)

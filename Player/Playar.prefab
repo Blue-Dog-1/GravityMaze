@@ -234,3 +234,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 100
+  _trail: {fileID: 6540175055712157221}
+  protectiveField: {fileID: 0}
