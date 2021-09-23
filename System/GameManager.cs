@@ -24,12 +24,20 @@ namespace Tysseek {
         [SerializeField] InputHub _input;
         [SerializeField] Transform _player;
         [SerializeField] CameraTracking _camera;
+        [SerializeField] AudioHub _audioHub;
         [SerializeField] UIManager _UIManager;
+        [SerializeField] SaveLoadSystem _SLSystem;
+        [SerializeField] GameObject[] _toggleMusic;
+        [SerializeField] GameObject[] _toggleSound;
+        [SerializeField] GameObject _Ads;
 
         [SerializeField] UnityEvent _playerWon;
         [SerializeField] UnityEvent _playerDied;
 
         public LevelData levelData { get; set; }
+        public bool isPlayeMod { get; private set; }
+        PlayerData _playerData;
+
         private void Awake()
         {
             main = this;
@@ -38,6 +46,18 @@ namespace Tysseek {
         {
             _input.left += RotateL;
             _input.right += RotateR;
+
+            Input.simulateMouseWithTouches = true;
+            _playerData = _SLSystem.Load();
+            _toggleMusic[0].SetActive(_playerData.toggleMusic);
+            _toggleMusic[1].SetActive(!_playerData.toggleMusic);
+            _audioHub.SwitchMusic(_playerData.toggleMusic);
+
+            _toggleSound[0].SetActive(_playerData.toggleSund);
+            _toggleSound[1].SetActive(!_playerData.toggleSund);
+            _audioHub.SwitchSound(_playerData.toggleSund);
+            GameManager.sound = _playerData.toggleSund;
+
         }
         public void SubStart(LevelData levelData)
         {
@@ -55,6 +75,7 @@ namespace Tysseek {
 
             _player.gameObject.SetActive(true);
             _camera.gameObject.SetActive(true);
+            isPlayeMod = true;
             _UIManager.SubStart();
         }
 
@@ -116,9 +137,24 @@ namespace Tysseek {
                 Time.timeScale = 1;
             }
         }
-        public static void SwitchMusic()
+        
+        public void SwitchMusic(bool turnOn)
         {
-            sound = !sound;
+            _toggleMusic[0].SetActive(turnOn);
+            _toggleMusic[1].SetActive(!turnOn);
+
+            _playerData.toggleMusic = turnOn;
+            _audioHub.SwitchMusic(turnOn);
+        }
+        public void SwitchSound(bool turnOn)
+        {
+            _toggleSound[0].SetActive(turnOn);
+            _toggleSound[1].SetActive(!turnOn);
+
+            _playerData.toggleSund = turnOn;
+            _audioHub.SwitchSound(turnOn);
+            GameManager.sound = turnOn;
+
         }
         public static void OnHitting(Player player)
         {
@@ -146,9 +182,11 @@ namespace Tysseek {
             main = null;
         }
 
-        private void OnApplicationQuit()
+        
+        public void OnApplicationQuit()
         {
-            
+            _SLSystem.playerData = _playerData;
+            _SLSystem.Save();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Tysseek
 {
     public class UIManager : MonoBehaviour
     {
+        [SerializeField] GameManager _gameManager;
         [SerializeField] RectTransform _controlPanel;
         [Header("Windows")]
         [Header("End Session Window")]
@@ -67,14 +68,14 @@ namespace Tysseek
             Physics.gravity = Vector3.down * 9.81f;
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
-        public void SwitchMusic()
+        public void OpenSetingsWindow(bool open)
         {
-            GameManager.SwitchMusic();
+            _settingsWindow.gameObject.SetActive(open);
 
-            if (GameManager.sound)
-                _buttonSound.sprite = _musicOff;
-            else
-                _buttonSound.sprite = _musicOn;
+            if (_gameManager.isPlayeMod)
+            {
+                _pauseWindow.gameObject.SetActive(!open);
+            }
         }
         public void PlayerWon()
         {
