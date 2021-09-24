@@ -15,7 +15,7 @@ MonoBehaviour:
   _playerPosition: {x: 0, y: 0, z: 0}
   _prefabBundle: {fileID: 11400000, guid: ad8a00b38ba93af4ba386f4e4c107e8e, type: 2}
   _number: 2
-  _isUnlocked: 0
+  _isUnlocked: 1
   _stars: 0
   _assetCollection:
   - name: block_corner

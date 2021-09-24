@@ -27,16 +27,19 @@ namespace Tysseek
         }
         void Start()
         {
-            _playerData = _SLSystem.Load();
+            var playerData = _playerData;
+            if (playerData.lastlevel == 0) playerData.lastlevel = 1;
+            playerData = _SLSystem.Load();
+            LevelPoint.selectPoint = _levelPoints[playerData.lastlevel - 1];
 
-            var point = _levelPoints[_playerData.lastlevel - 1];
+            var point = _levelPoints[playerData.lastlevel - 1];
             point.level.isUnlocked = true;
             point.Instate();
-            LevelPoint.selectPoint = _levelPoints[_playerData.lastlevel - 1];
         }
         public void Update()
         {
-            _area.position = LevelPoint.selectPoint.transform.position;
+            if (LevelPoint.selectPoint)
+                _area.position = LevelPoint.selectPoint.transform.position;
         }
 
         public void Play()
