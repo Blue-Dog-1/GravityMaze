@@ -34,13 +34,18 @@ namespace Tysseek {
         [SerializeField] UnityEvent _playerWon;
         [SerializeField] UnityEvent _playerDied;
 
-        public LevelData levelData { get; set; }
+        public static LevelData levelData { get; set; }
         public bool isPlayeMod { get; private set; }
-        PlayerData _playerData;
+        PlayerData playerData;
+        public static PlayerData PlayerData { get; set; }
+        public static byte countEnemy { get; set; }
+        public static byte countEnemyExit { get; set; }
+
 
         private void Awake()
         {
             main = this;
+            PlayerData = playerData = _SLSystem.Load();
         }
         void Start()
         {
@@ -48,20 +53,18 @@ namespace Tysseek {
             _input.right += RotateR;
 
             Input.simulateMouseWithTouches = true;
-            _playerData = _SLSystem.Load();
-            _toggleMusic[0].SetActive(_playerData.toggleMusic);
-            _toggleMusic[1].SetActive(!_playerData.toggleMusic);
-            _audioHub.SwitchMusic(_playerData.toggleMusic);
+            _toggleMusic[0].SetActive(playerData.toggleMusic);
+            _toggleMusic[1].SetActive(!playerData.toggleMusic);
+            _audioHub.SwitchMusic(playerData.toggleMusic);
 
-            _toggleSound[0].SetActive(_playerData.toggleSund);
-            _toggleSound[1].SetActive(!_playerData.toggleSund);
-            _audioHub.SwitchSound(_playerData.toggleSund);
-            GameManager.sound = _playerData.toggleSund;
+            _toggleSound[0].SetActive(playerData.toggleSund);
+            _toggleSound[1].SetActive(!playerData.toggleSund);
+            _audioHub.SwitchSound(playerData.toggleSund);
+            GameManager.sound = playerData.toggleSund;
 
         }
         public void SubStart(LevelData levelData)
         {
-            this.levelData = levelData;
             _player.transform.position = levelData.playerPos;
 
             if (levelData)
@@ -76,7 +79,9 @@ namespace Tysseek {
             _player.gameObject.SetActive(true);
             _camera.gameObject.SetActive(true);
             isPlayeMod = true;
-            _UIManager.SubStart();
+            countEnemy = (byte)levelData.EnemyCollection.Length;
+            countEnemyExit = 0;
+            _UIManager.ResStart(_player);
         }
 
         IEnumerator Unpack(LevelData levelData)
@@ -104,7 +109,15 @@ namespace Tysseek {
             _player.gameObject.SetActive(true);
             pause = false;
             Time.timeScale = 1;
-            _UIManager.HideHUD(true);
+            _UIManager.ResStart(_player);
+            //_UIManager.HideHUD(true);
+        }
+        public void Home()
+        {
+            Physics2D.gravity = Vector3.down * 9.81f;
+            Time.timeScale = 1;
+            SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+            SceneManager.LoadScene(0);
         }
         public IEnumerator LoadScene(LevelData level)
         {
@@ -143,7 +156,7 @@ namespace Tysseek {
             _toggleMusic[0].SetActive(turnOn);
             _toggleMusic[1].SetActive(!turnOn);
 
-            _playerData.toggleMusic = turnOn;
+            playerData.toggleMusic = turnOn;
             _audioHub.SwitchMusic(turnOn);
         }
         public void SwitchSound(bool turnOn)
@@ -151,20 +164,40 @@ namespace Tysseek {
             _toggleSound[0].SetActive(turnOn);
             _toggleSound[1].SetActive(!turnOn);
 
-            _playerData.toggleSund = turnOn;
+            playerData.toggleSund = turnOn;
             _audioHub.SwitchSound(turnOn);
             GameManager.sound = turnOn;
 
         }
         public static void OnHitting(Player player)
         {
+            var coefficient = 1f - ((1f / countEnemy) * countEnemyExit);
+            Debug.LogFormat("coefficient = {0}", coefficient);
+
             main._playerWon?.Invoke();
             MakePause();
             main._UIManager.HideHUD(false);
+            var starsCount = 0;
+            if (coefficient > .6f)
+                starsCount = 1;
+            if (coefficient > .75f)
+                starsCount = 2;
+            if (coefficient > .9f)
+                starsCount = 3;
+
+            if (starsCount > 0)
+                main.playerData.lastlevel += 1;
+            levelData.stars = (byte)starsCount;
+            main._UIManager.PlayerWon((byte)starsCount);
+            
+            Debug.Log("Hitt");
+            main._SLSystem.playerData = main.playerData;
+            main._SLSystem.Save();
+
         }
         public static void OnHitting(Enemy enemy)
         {
-
+            countEnemyExit++;
         }
         public static void PlayerDied()
         {
@@ -185,7 +218,7 @@ namespace Tysseek {
         
         public void OnApplicationQuit()
         {
-            _SLSystem.playerData = _playerData;
+            _SLSystem.playerData = playerData;
             _SLSystem.Save();
         }
     }

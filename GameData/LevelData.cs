@@ -19,7 +19,7 @@ namespace Tysseek
 
         public int number => _number;
         public bool isUnlocked { get => _isUnlocked; set => _isUnlocked = value; }
-        public byte stars => _stars;
+        public byte stars { get => _stars; set => _stars = value; }
 
         public Asset[] assetCollection => _assetCollection;
         public Asset[] EnemyCollection => _enemyCollection;

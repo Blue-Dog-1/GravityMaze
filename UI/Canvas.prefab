@@ -3864,16 +3864,15 @@ MonoBehaviour:
   _gameManager: {fileID: 0}
   _controlPanel: {fileID: 6813699056944730072}
   _WonWindow: {fileID: 3742853782048724407}
+  _stars:
+  - {fileID: 1097695603345680630}
+  - {fileID: 1107331861582901697}
+  - {fileID: 3584728906397169321}
   _LostWindow: {fileID: 6493502203203346412}
   _pauseWindow: {fileID: 7632614226989765150}
   _settingsWindow: {fileID: 5439818735626332445}
   _HUDElements: {fileID: 4589233402472656728}
-  _buttonPause: {fileID: 3742853783295673923}
-  _spritePause: {fileID: 21300000, guid: 1c6591631957fb440877947045226044, type: 3}
-  _spriteClose: {fileID: 21300000, guid: b7329039fe4b4ec45b8258f94fe48aea, type: 3}
-  _buttonSound: {fileID: 0}
-  _musicOn: {fileID: 21300000, guid: 3609cd894931c7d4c92acc048d10ca72, type: 3}
-  _musicOff: {fileID: 21300000, guid: c989d274e1d5d87469ac46b295ea5d1e, type: 3}
+  _compass: {fileID: 3742853782015043337}
   _startGame:
     m_PersistentCalls:
       m_Calls:
@@ -4190,9 +4189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c433f709b01818b4eb0f019afa5266e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Plyar: {fileID: 0}
-  target: {fileID: 0}
-  compass: {fileID: 3742853782015043380}
+  _playar: {fileID: 0}
+  _target: {fileID: 0}
 --- !u!114 &3742853782015043336
 MonoBehaviour:
   m_ObjectHideFlags: 0

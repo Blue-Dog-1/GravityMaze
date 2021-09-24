@@ -521,11 +521,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 0
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 0
+  m_RequiresOpaqueTextureOption: 0
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -658,6 +658,41 @@ PrefabInstance:
     - target: {fileID: 46168996212385574, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 950294545977331086}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tysseek.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 245270219094496336, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 482761601423686515, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
@@ -878,6 +913,41 @@ PrefabInstance:
     - target: {fileID: 3228144854133275528, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 950294545977331086}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tysseek.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558856437869003744, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3610430783160311570, guid: 7ce0536bcff2eb248b8c5ad140b8b4d4,

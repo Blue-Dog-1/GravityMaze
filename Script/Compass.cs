@@ -6,24 +6,23 @@ namespace Tysseek
 {
     public class Compass : MonoBehaviour
     {
-        public GameObject Plyar;
-        public GameObject target;
-        public GameObject compass;
+        [SerializeField] Transform _playar;
+        [SerializeField] Transform _target;
         Vector3 vectortarget;
-        RectTransform rect;
-
-        void Start()
+        
+        public void SetTarget(Transform target, Transform player)
         {
-            rect = compass.GetComponent<RectTransform>();
+            _target = target;
+            _playar = player;
         }
 
         void Update()
         {
-            if (target)
+            if (_target)
             {
-                vectortarget = Plyar.transform.position - target.transform.position;
+                vectortarget = _playar.transform.position - _target.transform.position;
                 vectortarget.z = 0f;
-                rect.rotation = Quaternion.FromToRotation(Camera.main.transform.up, -vectortarget);
+                transform.rotation = Quaternion.FromToRotation(Camera.main.transform.up, -vectortarget);
             }
         }
     }

@@ -15,6 +15,7 @@ namespace Tysseek
         [Header("Windows")]
         [Header("End Session Window")]
         [SerializeField] RectTransform _WonWindow;
+        [SerializeField] Image[] _stars;
         [SerializeField] RectTransform _LostWindow;
 
         [Header("Pause Window")]
@@ -23,22 +24,11 @@ namespace Tysseek
 
         [SerializeField] RectTransform _HUDElements;
 
-        [Header("pause fields")]
-        [SerializeField] Image _buttonPause;
-        [SerializeField] Sprite _spritePause;
-        [SerializeField] Sprite _spriteClose;
+        [Space]
+        [SerializeField] Compass _compass;
 
-        [Header("sound fields")]
-        [SerializeField] Image _buttonSound;
-        [SerializeField] Sprite _musicOn;
-        [SerializeField] Sprite _musicOff;
+        [Space]
         [SerializeField] UnityEvent _startGame;
-
-        public void SubStart()
-        {
-            _startGame?.Invoke();
-            HideHUD(true);
-        }
         
         public void EndSession()
         {
@@ -51,11 +41,6 @@ namespace Tysseek
             _HUDElements.gameObject.SetActive(!GameManager.pause);
 
             _pauseWindow.gameObject.SetActive(GameManager.pause);
-            if (GameManager.pause)
-                _buttonPause.sprite = _spriteClose;
-            else
-                _buttonPause.sprite = _spritePause;
-
         }
         public void HideHUD(bool show)
         {
@@ -77,10 +62,28 @@ namespace Tysseek
                 _pauseWindow.gameObject.SetActive(!open);
             }
         }
-        public void PlayerWon()
+        public void ResStart(Transform player)
+        {
+            _startGame?.Invoke();
+            HideHUD(true);
+
+            _settingsWindow.gameObject.SetActive(false);
+            _pauseWindow.gameObject.SetActive(false);
+            _WonWindow.gameObject.SetActive(false);
+            _LostWindow.gameObject.SetActive(false);
+            _controlPanel.gameObject.SetActive(true);
+            _HUDElements.gameObject.SetActive(true);
+            var tagget = FindObjectOfType<Exit>();
+            if (tagget)
+                _compass.SetTarget(tagget.transform, player);
+        }
+        public void PlayerWon(byte countStars)
         {
             _WonWindow.gameObject.SetActive(true);
             _LostWindow.gameObject.SetActive(false);
+
+            for (int i = 0; i < countStars; i++)
+                _stars[i].color = Color.white;
 
         }
         public void PlayerLost()

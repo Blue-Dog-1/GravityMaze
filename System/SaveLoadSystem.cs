@@ -16,21 +16,18 @@ namespace Tysseek
         {
             this.playerData = playerData;
             Debug.Log(_path);
-            var json = JsonUtility.ToJson(playerData, true); // потом в folse незабудъ
-
+            var json = JsonUtility.ToJson(playerData, false);
             File.WriteAllText(_path, json);
         }
         public PlayerData Load()
         {
             if(!File.Exists(_path))
             {
+                Save();
                 return playerData;
             }
-
             var json = File.ReadAllText(_path);
-
             playerData = JsonUtility.FromJson<PlayerData>(json);
-
             return playerData;
         }
     }

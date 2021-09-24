@@ -12,201 +12,161 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c8c0a3c6a0ab94781806b8b1b47a77, type: 3}
   m_Name: LevelData 1
   m_EditorClassIdentifier: 
-  _playerPosition: {x: -8.500312, y: 8.301125, z: 0}
+  _playerPosition: {x: -1.4976506, y: -4.207073, z: 0}
   _prefabBundle: {fileID: 11400000, guid: ad8a00b38ba93af4ba386f4e4c107e8e, type: 2}
   _number: 1
   _isUnlocked: 1
-  _stars: 2
+  _stars: 0
   _assetCollection:
   - name: block_square
     coordinates:
-      position: {x: -7.85, y: 0.58, z: 0}
+      position: {x: -6.53, y: 6.16, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
-  - name: block_corner_large
+  - name: block_narrow Long
     coordinates:
-      position: {x: 8.55, y: 1.46, z: 0}
+      position: {x: 4.39, y: -1.71, z: 0}
       rotation: {x: -0, y: 0, z: 90}
       size: {x: 1, y: 1, z: 1}
   - name: block_narrow Long
     coordinates:
-      position: {x: 1.8, y: 8.29, z: 0}
+      position: {x: -4.5, y: -8.28, z: 0}
       rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_narrow Long
-    coordinates:
-      position: {x: -6.84, y: -3.55, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_narrow
-    coordinates:
-      position: {x: 3.34, y: 1.47, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner_large
-    coordinates:
-      position: {x: -8.56, y: 2.54, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_rotate_narrow
     coordinates:
-      position: {x: 8, y: 7.86, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: Protective field
-    coordinates:
-      position: {x: 8.87, y: -0.94, z: -0.82}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 0.5, y: 0.5, z: 0.5}
-  - name: block_square
-    coordinates:
-      position: {x: -6.48, y: 7.18, z: 0}
+      position: {x: -2.92, y: 4.58, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_large
     coordinates:
-      position: {x: -2.67, y: -1.44, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
+      position: {x: 6.42, y: 7.29, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_large
     coordinates:
-      position: {x: 1.67, y: 3.25, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
+      position: {x: 1.28, y: -8.74, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_corner_large
     coordinates:
-      position: {x: 0.31, y: -4.4, z: 0}
-      rotation: {x: -0, y: 0, z: 180}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner_large
-    coordinates:
-      position: {x: 5.09, y: 5.38, z: 0}
+      position: {x: 2.18, y: 5, z: 0}
       rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: Protective field
-    coordinates:
-      position: {x: -3, y: 0, z: -0.82}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 0.5, y: 0.5, z: 0.5}
-  - name: Spikes_are_short
-    coordinates:
-      position: {x: -6.84, y: -3.01, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_rotate_large
     coordinates:
-      position: {x: 0.41, y: -1.6, z: 0}
+      position: {x: 8.28, y: -7.61, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_corner_large
     coordinates:
-      position: {x: -7.41, y: -7.52, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner_large
-    coordinates:
-      position: {x: 6.06, y: -1.11, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_square
-    coordinates:
-      position: {x: 3.63, y: 3.44, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner_large
-    coordinates:
-      position: {x: 7.66, y: 5.38, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_square
-    coordinates:
-      position: {x: -13.88, y: 3.53, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner
-    coordinates:
-      position: {x: 9.23, y: 9.22, z: 0}
-      rotation: {x: -0, y: 0, z: 180}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner
-    coordinates:
-      position: {x: 8.04, y: -1.76, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_narrow Long
-    coordinates:
-      position: {x: -2.17, y: 3, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_small
-    coordinates:
-      position: {x: 6.07, y: -9.71, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: Laser Block Long
-    coordinates:
-      position: {x: -6.95, y: -1.44, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_corner
-    coordinates:
-      position: {x: -2.52, y: 9.26, z: 0}
+      position: {x: 5.14, y: -5.25, z: 0}
       rotation: {x: -0, y: 0, z: 270}
       size: {x: 1, y: 1, z: 1}
-  - name: star
+  - name: block_square
     coordinates:
-      position: {x: -15.22, y: -1.1, z: 0}
+      position: {x: -2.52, y: 1.16, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
-  - name: block_large
+  - name: block_corner
     coordinates:
-      position: {x: -8.59, y: 6.8, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_large
-    coordinates:
-      position: {x: 2.7, y: -6.47, z: 0}
-      rotation: {x: -0, y: 0, z: 90}
+      position: {x: 2.83, y: 8.56, z: 0}
+      rotation: {x: -0, y: 0, z: 180}
       size: {x: 1, y: 1, z: 1}
   - name: block_narrow
     coordinates:
-      position: {x: -3.52, y: 8.65, z: 0}
+      position: {x: -2.83, y: 8.66, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   - name: block_narrow Long
     coordinates:
-      position: {x: 6.05, y: -5.55, z: 0}
+      position: {x: 1.25, y: 1.05, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
-  - name: Laser Block Long
+  - name: block_narrow Long
     coordinates:
-      position: {x: 3.34, y: -2.81, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
+      position: {x: 6, y: 4.08, z: 0}
+      rotation: {x: -0, y: 0, z: 90}
       size: {x: 1, y: 1, z: 1}
-  - name: 'Laser Block Super Long '
+  - name: block_corner_large
     coordinates:
-      position: {x: 19.13, y: -0.15, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
+      position: {x: -0.5, y: -0.63, z: 0}
+      rotation: {x: -0, y: 0, z: 180}
       size: {x: 1, y: 1, z: 1}
-  - name: block_rotate_large
+  - name: hole_large_end
     coordinates:
-      position: {x: 5.73, y: 2.31, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: block_square
-    coordinates:
-      position: {x: 1.65, y: 6.19, z: 0}
-      rotation: {x: -0, y: 0, z: 0}
-      size: {x: 1, y: 1, z: 1}
-  - name: star
-    coordinates:
-      position: {x: -15.22, y: -1.1, z: 0}
+      position: {x: 4.44, y: 1.28, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
   _enemyCollection:
   - name: Enemy
     coordinates:
-      position: {x: 8.19, y: -9.09, z: 0}
+      position: {x: 2, y: 6.88, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 8.41, y: 7.47, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 4.93, y: 7.52, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 4.44, y: 5.32, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -4.23, y: -1.78, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -5.75, y: -3.1, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -1.23, y: -6.09, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -3.12, y: -6.09, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -4.92, y: -6.09, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 6.79, y: -0.2, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 8.83, y: 2.23, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 8.13, y: -1.89, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: -0.44, y: 1.62, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      size: {x: 0.8, y: 0.8, z: 1}
+  - name: Enemy
+    coordinates:
+      position: {x: 3.99, y: -3.17, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
@@ -216,12 +176,12 @@ MonoBehaviour:
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: -9.43, y: -5.25, z: 0}
+      position: {x: -8.66, y: -3.79, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: 3.06, y: 9.27, z: 0}
+      position: {x: 6.3, y: 9.45, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
@@ -231,26 +191,26 @@ MonoBehaviour:
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: 1.55, y: 9.35, z: 0}
+      position: {x: -4.24, y: 7.7, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: -2, y: 7, z: 0}
+      position: {x: 5.17, y: -3.15, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: -1, y: 6, z: 0}
+      position: {x: 3.18, y: -7.55, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: -1.88, y: 8.25, z: 0}
+      position: {x: 4.38, y: -8.64, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}
   - name: Enemy
     coordinates:
-      position: {x: -3.64, y: -0.94, z: 0}
+      position: {x: -5.19, y: 0.9, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 0.8, y: 0.8, z: 1}

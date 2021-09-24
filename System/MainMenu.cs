@@ -14,16 +14,12 @@ namespace Tysseek
         }
         [SerializeField] GameManager _gameManager;
         [SerializeField] SaveLoadSystem _SLSystem;
-        [SerializeField] GameObject[] _toggleMusic;
-        [SerializeField] GameObject[] _toggleSound;
-        [SerializeField] GameObject _Ads;
-        [SerializeField] AudioHub _audioHub;
         [SerializeField] Transform _area;
         [SerializeField] List<LevelPoint> _levelPoints;
 
         [SerializeField] float _velocityMoveCam = 1f;
 
-        PlayerData _playerData;
+        public PlayerData _playerData { get; set; }
 
         public void Awake()
         {
@@ -31,15 +27,21 @@ namespace Tysseek
         }
         void Start()
         {
-            var point = _levelPoints[_playerData.lastlevel];
+            _playerData = _SLSystem.Load();
+
+            var point = _levelPoints[_playerData.lastlevel - 1];
             point.level.isUnlocked = true;
             point.Instate();
-            _area.position = point.transform.position;
+            LevelPoint.selectPoint = _levelPoints[_playerData.lastlevel - 1];
+        }
+        public void Update()
+        {
+            _area.position = LevelPoint.selectPoint.transform.position;
         }
 
         public void Play()
         {
-            _gameManager.levelData = _levelPoints[_playerData.lastlevel].level;
+            GameManager.levelData = LevelPoint.selectPoint.level;
         }
 
         

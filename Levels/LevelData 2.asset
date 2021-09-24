@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c8c0a3c6a0ab94781806b8b1b47a77, type: 3}
   m_Name: LevelData 2
   m_EditorClassIdentifier: 
+  _playerPosition: {x: 0, y: 0, z: 0}
   _prefabBundle: {fileID: 11400000, guid: ad8a00b38ba93af4ba386f4e4c107e8e, type: 2}
   _number: 2
-  _isUnlocked: 1
-  _stars: 1
+  _isUnlocked: 0
+  _stars: 0
   _assetCollection:
   - name: block_corner
     coordinates:
@@ -367,3 +368,4 @@ MonoBehaviour:
       position: {x: 3.34, y: 1.47, z: 0}
       rotation: {x: -0, y: 0, z: 0}
       size: {x: 1, y: 1, z: 1}
+  _enemyCollection: []
